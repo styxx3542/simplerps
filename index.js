@@ -5,16 +5,35 @@ const getComputerChoice = () =>
     if(i<0.66){return "paper"}
     return "scissors"
 }
-let win = 0,loss = 0,draw = 0
+let win = 0,loss = 0,games = 0
 const rps = {"rock":1,"paper":2,"scissors":3}
-for(let i = 0;i<5;i++)
-{
-    let userinput = prompt("Enter your choice")
+const playRound = (userinput)=>{
     let a = getComputerChoice()
+    placeholder = document.querySelector("#user-choice img")
+    placeholder.src = `${userinput}.jpg`
+    img = document.querySelector(".computer-choice img")
+    img.src = `${a}.jpg`
     let choice = rps[a]
     let diff = choice - rps[userinput]
-    if(diff == 1 || diff == -2){alert(`You lost! ${a} beats ${userinput}`);loss++}
-    else if(diff == 2 || diff == 1){alert(`You won! ${userinput} beats ${a}`);win++}
-    else{alert("go again");draw++}
+    console.log(diff)
+    if(diff == 1 || diff == -2){loss++}
+    else if(diff == 2 || diff == -1){win++}
+    games++;
+    computerScore = document.querySelector(".computer-score")
+    computerScore.innerHTML = `Computer Score - ${loss}`
+    userScore = document.querySelector(".user-score")
+    userScore.innerHTML = `User Score - ${win}`
+    result = document.querySelector(".result")
+    if(games == 5)
+    {
+        if(win > loss)result.innerHTML =  "Result - User Won!";
+        else if(loss < win)result.innerHTML = "Result - User Lost!";
+        else result.innerHTML = "It's a draw!";
+    }
+
 }
-alert(`Win - ${win} Loss - ${loss} Draw - ${draw} `)
+images = document.querySelectorAll(".choices img");
+for(let img of images)
+{
+    img.addEventListener("click", ()=>(playRound(img.id)))
+}

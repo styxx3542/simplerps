@@ -5,9 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple RPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    
+    <h1>
+        Rock Paper Scissors
+    </h1>
+    <p>Choose-</p>
+    <div class="choices">
+        <img src="rock.jpg" alt="" id = "rock">
+        <img src="paper.jpg" alt="" id = "paper">
+        <img src="scissors.jpg" alt="" id = "scissors">
+    </div>
+    <p> Users choice - </p>
+    <div id = "user-choice">
+        <img src="placeholder.jpg" alt="" class = "placeholder">
+    </div>
+    <p>Computers Choice</p>
+    <div class="computer-choice">
+    <img src="placeholder.jpg" alt="" class = "placeholder">
+    </div>
+    <section class = "running-score">
+        <div class = "computer-score">
+            Computer Score - 0
+        </div>
+        <div class = "user-score">
+            User Score - 0
+        </div>
+    </section>
+    <section class = "result">
+        Result: Ongoing
+    </section>
 <script src="index.js"></script>
 </body>
 </html>
